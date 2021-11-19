@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src = "https://aframe.io/releases/1.2.0/aframe.min.js"> </script>
+    </head>
+    <body>
+        <a-scene background = "color:white">
+            <a-camera postion = "0 8 15" ></a-camera>
+            <!-- Asset manegement -->
+            <a-assests timeout = "10000">
+                <a-asset-item id = "man" src = "./spiderman/scene.gltf"></a-asset-item>
+                <a-assest-item id = "dog" src = "./dog/scene.gltf"></a-assest-item>
+                <a-assest-item id = "lamp" src = "./lamp/scene.gltf"></a-assest-item>
+                <a-assest-item id = "tree" src = "./maple_tree/scene.gltf"></a-assest-item>
+                <a-assest-item id = "bench" src = "./bench/scene.gltf"></a-assest-item>
+                <img id = "bg" src="./sky.jpg">
+            </a-assests>   
+            <a-sky src = "#bg"></a-sky>
+            <!-- LIGHTING IN THE SCENE -->
+            <!-- ANBIENCE LIGHT -->
+            <a-entity light = "type:ambient;intensity:0.5;"></a-entity>
+            <!-- DIRECTIONAL LIGHT -->
+            <a-entity animation = "property:rotation;to:0 360 0;easing:linear;loop:true;dur:6000">
+                <a-entity light = "type:directional;castShadow:true;intensity:1;distance:50;decay:true;color:yellow"position = "-100 18 20"></a-entity>
+            </a-entity>
+            <!-- CIRCULAR-PLANE -->
+            <a-circle position = "-0.4 -0.76 -25" rotation = "-90 0 0" radius = "100" shadow = "receive:true" visible = "true" color = "#2e6f10"></a-circle>
+            <!-- GLTF models -->
+            <!-- MAN -->
+            <a-entity >
+                <a-entity position = "-5 0 -5" rotation = "0 55 0" scale = "0.01 0.01 0.01" gltf-model = "#man" shadow = "cast:true"></a-entity>
+            </a-entity>
+            <!-- DOG -->
+            <a-entity >
+                <a-entity position = "-9 0 -5" rotation = "0 90 0" scale = "0.01 0.01 0.01" gltf-model = "#dog" shadow = "cast:true"></a-entity>
+            </a-entity>
+            <!-- LAMP -->
+            <a-entity >
+                <a-entity position = "2 0 -7" rotation = "0 -90 0" scale = "0.1 0.1 0.1" gltf-model = "#lamp" shadow = "cast:true;receive:false"></a-entity>
+
+            </a-entity>
+            <!-- TREES -->
+            <a-entity >
+                <a-entity position = "-10 0 -7" rotation = "0 0 0" scale = "0.01 0.01 0.01" gltf-model = "#tree" shadow = "cast:true"></a-entity>
+            </a-entity>
+            
+             <!--bench-->
+            <a-entity>
+            <a-entity position="-2 -0.9 -10" rotation="0 0 0" scale="0.01 0.01 0.01" gltf-model="#bench"
+                shadow="cast: true; receive: false">
+            </a-entity>
+
+           
+
+      </a-entity>    
+        </a-scene>
+
+    </body>
+</html>
